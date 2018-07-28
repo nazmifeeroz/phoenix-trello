@@ -1,17 +1,35 @@
 use Mix.Config
 
+config :phoenix_trello, PhoenixTrelloWeb.Endpoint,
+  http: [port: 4000],
+  debug_errors: true,
+  code_reloader: true,
+  cache_static_lookup: false,
+  check_origin: false,
+  watchers: [
+    node: [
+      "node_modules/webpack/bin/webpack.js",
+      "--mode",
+      "development",
+      "--watch-stdin",
+      # "--watch",
+      "--color",
+      cd: Path.expand("../", __DIR__)
+    ]
+  ]
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
-config :phoenix_trello, PhoenixTrelloWeb.Endpoint,
-  http: [port: 4000],
-  debug_errors: true,
-  code_reloader: true,
-  check_origin: false,
-  watchers: []
+# config :phoenix_trello, PhoenixTrelloWeb.Endpoint,
+#   http: [port: 4000],
+#   debug_errors: true,
+#   code_reloader: true,
+#   check_origin: false,
+#   watchers: []
 
 # ## SSL Support
 #
@@ -50,8 +68,8 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :phoenix_trello, PhoenixTrello.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "irahashmi",
+  password: "",
   database: "phoenix_trello_dev",
   hostname: "localhost",
   pool_size: 10
